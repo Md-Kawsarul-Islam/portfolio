@@ -1,0 +1,44 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.kawsarul-portfolio-site.vercel.app"
+        }
+      ],
+      "destination": "https://kawsarul-portfolio-site.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
+"rewrites": [
+  {
+    "source": "/((?!sitemap.xml|robots.txt).*)",
+    "destination": "/"
+  }
+],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

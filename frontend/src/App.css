@@ -1,0 +1,171 @@
+/* Add this at the end of your CSS file */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(8, 145, 178, 0.3),
+                0 0 20px rgba(8, 145, 178, 0.2),
+                0 0 30px rgba(8, 145, 178, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(8, 145, 178, 0.5),
+                0 0 40px rgba(8, 145, 178, 0.4),
+                0 0 60px rgba(8, 145, 178, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(8, 145, 178, 0.3),
+                0 0 20px rgba(8, 145, 178, 0.2),
+                0 0 30px rgba(8, 145, 178, 0.1);
+  }
+}
+
+.glow-animation {
+  animation: glow 1s ease-in-out infinite;
+}
+
+/* Hero Image Specific Styles - Isolated to prevent glitching */
+.hero-image-frame {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.hero-image-frame:hover {
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(8, 145, 178, 0.3);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.4),
+              0 0 40px rgba(8, 145, 178, 0.4);
+}
+
+.hero-image-glow-bg {
+  background: linear-gradient(to right, rgb(8 145 178), rgb(5 150 105)) !important;
+  filter: blur(1px);
+  opacity: 0.75;
+  transition: all 0.6s ease;
+}
+
+.hero-image-container:hover .hero-image-glow-bg {
+  opacity: 1;
+  filter: blur(2px);
+}
+
+/* 3D Profile Modal Styles */
+.profile-3d-scene {
+  perspective: 1200px;
+  perspective-origin: center 40%;
+  transform-style: preserve-3d;
+}
+
+.profile-platform {
+  transform-style: preserve-3d;
+  animation: platformFloat 4s ease-in-out infinite;
+}
+
+@keyframes platformFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.platform-surface {
+  transform-style: preserve-3d;
+}
+
+.platform-grid {
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(8, 145, 178, 0.1) 0%, transparent 70%);
+}
+
+.profile-standing-container {
+  transform-style: preserve-3d;
+  animation: standingFloat 5s ease-in-out infinite;
+}
+
+@keyframes standingFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px) translateZ(20px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-15px) translateZ(30px);
+  }
+}
+
+.profile-image-standing {
+  transform-style: preserve-3d;
+  transform: translateZ(50px);
+  animation: imageSubtleMove 6s ease-in-out infinite;
+}
+
+@keyframes imageSubtleMove {
+  0%, 100% {
+    transform: translateZ(50px) rotateY(-2deg);
+  }
+  25% {
+    transform: translateZ(60px) rotateY(1deg);
+  }
+  50% {
+    transform: translateZ(50px) rotateY(2deg);
+  }
+  75% {
+    transform: translateZ(60px) rotateY(-1deg);
+  }
+}
+
+@keyframes animate-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateZ(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+
+.animate-scale-in {
+  animation: animate-scale-in 0.4s ease-out;
+}
+
+@keyframes animate-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: animate-fade-in 0.3s ease-out;
+}
+
+/* Linux Terminal Interactive Styles */
+@keyframes terminalPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3),
+                0 0 40px rgba(34, 197, 94, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.5),
+                0 0 60px rgba(34, 197, 94, 0.3),
+                0 0 80px rgba(34, 197, 94, 0.2);
+  }
+}
+
+.terminal-interactive-glow:hover {
+  animation: terminalPulse 2s ease-in-out infinite;
+}
+
+/* ==================== LIGHT MODE - HERO ANIMATIONS ==================== */
+
+/* Disable glow animation in light mode - no blinking */
+:root:not(.dark) .glow-animation {
+  animation: none;
+  box-shadow: none;
+}

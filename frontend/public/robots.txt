@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kawsarul-portfolio-site.vercel.app/sitemap.xml
